@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenbo.imagerepo.db.mappers.ImagesProductsMapper">
+  <resultMap id="BaseResultMap" type="com.wenbo.imagerepo.db.po.ImagesProducts">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="commodity_name" jdbcType="VARCHAR" property="commodityName" />
+    <result column="commodity_desc" jdbcType="VARCHAR" property="commodityDesc" />
+    <result column="commodity_price" jdbcType="INTEGER" property="commodityPrice" />
+    <result column="total_stock" jdbcType="BIGINT" property="totalStock" />
+    <result column="available_stock" jdbcType="INTEGER" property="availableStock" />
+    <result column="lock_stock" jdbcType="BIGINT" property="lockStock" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, commodity_name, commodity_desc, commodity_price, total_stock, available_stock, 
+    lock_stock
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from images_inventory
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from images_inventory
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wenbo.imagerepo.db.po.ImagesProducts">
+    insert into images_inventory (id, commodity_name, commodity_desc, 
+      commodity_price, total_stock, available_stock, 
+      lock_stock)
+    values (#{id,jdbcType=BIGINT}, #{commodityName,jdbcType=VARCHAR}, #{commodityDesc,jdbcType=VARCHAR}, 
+      #{commodityPrice,jdbcType=INTEGER}, #{totalStock,jdbcType=BIGINT}, #{availableStock,jdbcType=INTEGER}, 
+      #{lockStock,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wenbo.imagerepo.db.po.ImagesProducts">
+    insert into images_inventory
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="commodityName != null">
+        commodity_name,
+      </if>
+      <if test="commodityDesc != null">
+        commodity_desc,
+      </if>
+      <if test="commodityPrice != null">
+        commodity_price,
+      </if>
+      <if test="totalStock != null">
+        total_stock,
+      </if>
+      <if test="availableStock != null">
+        available_stock,
+      </if>
+      <if test="lockStock != null">
+        lock_stock,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="commodityName != null">
+        #{commodityName,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityDesc != null">
+        #{commodityDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityPrice != null">
+        #{commodityPrice,jdbcType=INTEGER},
+      </if>
+      <if test="totalStock != null">
+        #{totalStock,jdbcType=BIGINT},
+      </if>
+      <if test="availableStock != null">
+        #{availableStock,jdbcType=INTEGER},
+      </if>
+      <if test="lockStock != null">
+        #{lockStock,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wenbo.imagerepo.db.po.ImagesProducts">
+    update images_inventory
+    <set>
+      <if test="commodityName != null">
+        commodity_name = #{commodityName,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityDesc != null">
+        commodity_desc = #{commodityDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityPrice != null">
+        commodity_price = #{commodityPrice,jdbcType=INTEGER},
+      </if>
+      <if test="totalStock != null">
+        total_stock = #{totalStock,jdbcType=BIGINT},
+      </if>
+      <if test="availableStock != null">
+        available_stock = #{availableStock,jdbcType=INTEGER},
+      </if>
+      <if test="lockStock != null">
+        lock_stock = #{lockStock,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wenbo.imagerepo.db.po.ImagesProducts">
+    update images_inventory
+    set commodity_name = #{commodityName,jdbcType=VARCHAR},
+      commodity_desc = #{commodityDesc,jdbcType=VARCHAR},
+      commodity_price = #{commodityPrice,jdbcType=INTEGER},
+      total_stock = #{totalStock,jdbcType=BIGINT},
+      available_stock = #{availableStock,jdbcType=INTEGER},
+      lock_stock = #{lockStock,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
