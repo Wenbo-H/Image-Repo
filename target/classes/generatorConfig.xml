@@ -37,5 +37,10 @@ Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"
                domainObjectName="ImagesProducts" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false" selectByExampleQueryId="false"></table>
+
+        <table schema="" tableName="user_table"
+               domainObjectName="Users" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false" selectByExampleQueryId="false"></table>
     </context>
 </generatorConfiguration>

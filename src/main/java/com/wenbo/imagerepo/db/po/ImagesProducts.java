@@ -7,7 +7,11 @@ public class ImagesProducts {
 
     private String commodityDesc;
 
-    private Integer commodityPrice;
+    private Long commodityPrice;
+
+    private String imagePath;
+
+    private Integer sellId;
 
     private Long totalStock;
 
@@ -39,12 +43,28 @@ public class ImagesProducts {
         this.commodityDesc = commodityDesc == null ? null : commodityDesc.trim();
     }
 
-    public Integer getCommodityPrice() {
+    public Long getCommodityPrice() {
         return commodityPrice;
     }
 
-    public void setCommodityPrice(Integer commodityPrice) {
+    public void setCommodityPrice(Long commodityPrice) {
         this.commodityPrice = commodityPrice;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath == null ? null : imagePath.trim();
+    }
+
+    public Integer getSellId() {
+        return sellId;
+    }
+
+    public void setSellId(Integer sellId) {
+        this.sellId = sellId;
     }
 
     public Long getTotalStock() {

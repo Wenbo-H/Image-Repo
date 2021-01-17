@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" xmlns:th="http://www.thymeleaf.org">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>秒杀活动发布</title>
+    <link rel="stylesheet" type="text/css" href="/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="/css/pages-getOrderInfo.css" />
+</head>
+
+<body>
+<!--head-->
+<div id="nav-bottom">
+    <!--顶部-->
+    <div class="nav-top">
+        <div class="top">
+            <div class="py-container">
+                <div class="shortcut">
+                    <ul class="fl">
+                        <li class="f-item"></li>
+                        <li class="f-item">请  <a th:utext="${user_name}"></a> <a href="login.html" target="_blank">登录</a>  <span><a href="register.html"target="_blank">免费注册</a></span></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--头部-->
+        <div class="header">
+            <div class="py-container">
+                <div class="yui3-g Logo">
+                    <div class="yui3-u Left logoArea">
+                        <a class="logo-bd" title="青橙" href="login.html" target="_blank"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="cart py-container" id="cart">
+    <!--主内容-->
+    <div class="checkout py-container">
+        <div class="checkout-tit">
+            <h4 class="tit-txt">Newly Added Images</h4>
+        </div>
+        <div class="checkout-steps">
+            <div class="hr"></div>
+            <!--支付和送货-->
+            <div class="payshipInfo">
+                <div class="hr"></div>
+                <div class="step-cont">
+                    <ul class="send-detail">
+                        <li>
+                            <div class="sendGoods">
+                                <script>
+                                    console.log("hello wolrd")
+                                    var userid = 20
+                                    var userid = "/addImageProductAction/" + userid
+                                    var test = "@{"+userid+"}";
+                                    console.log(test)
+                                </script>
+                                <form th:action="@{/addImageProductAction}" method="post">
+                                    Image Name:<input type="text" name="commodity_name"><br><br>
+                                    Image Description：<input type="text" name="commodity_desc"><br><br>
+                                    Price：<input type="text" name="commodity_price"><br><br>
+                                    Total Stock：<input type="text" name="total_stock"><br><br>
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="hr"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
+
+
